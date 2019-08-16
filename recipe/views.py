@@ -1,5 +1,5 @@
-from .serializers import *
-from .models import *
+from recipe.models import *
+from .serializers import RecipeSerializer, StepSerializer, IngredientSerializer
 from rest_framework import viewsets
 
 
@@ -11,7 +11,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
 class StepViewSet(viewsets.ModelViewSet):
     queryset = Step.objects.all()
     serializer_class = StepSerializer
-    
+
 
 class IngredientViewSet(viewsets.ModelViewSet):
     queryset = Ingredient.objects.all()
