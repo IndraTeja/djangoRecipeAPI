@@ -1,4 +1,10 @@
 from django.contrib import admin
 from .models import *
 
-admin.site.register(Recipe)
+
+class RecipeList(admin.ModelAdmin):
+
+    list_display = ('recipe_name', 'author')
+    search_fields = ('recipe_name',)
+
+admin.site.register(Recipe, RecipeList)

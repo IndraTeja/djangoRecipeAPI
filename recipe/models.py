@@ -7,4 +7,4 @@ class Recipe(models.Model):
     author = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
 
     def __str__(self):
-        return "%s %s" % (self.recipe_name, self.author)
+        return self.recipe_name
