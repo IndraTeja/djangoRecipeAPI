@@ -14,10 +14,10 @@ class RecipeSerializer(serializers.HyperlinkedModelSerializer):
 class StepSerializer(serializers.ModelSerializer):
     class Meta:
         model = Step
-        field = '__all__'
+        field = ("id", "step", 'recipe')
 
 
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
-        field = '__all__'
+        field = ("id", "ingredient", "recipe")
