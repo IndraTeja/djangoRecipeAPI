@@ -1,14 +1,11 @@
 from django.db import models
-from django.contrib.auth import get_user_model
-
-
+from django.contrib.auth.models import User
 class Recipe(models.Model):
-    recipe_name = models.CharField(max_length=50, null=False, unique=True, blank=False)
-    author = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, primary_key=True)
+    recipe_name = models.CharField(max_length=50, null=False, unique=True, blank=False, primary_key=True)
+    author = models.ForeignKey(User(), on_delete=models.CASCADE, blank=False)
 
     def __str__(self):
         return self.recipe_name
-
 
 class Step(models.Model):
     step = models.TextField(max_length=300)
@@ -16,7 +13,6 @@ class Step(models.Model):
 
     def __str__(self):
         return self.step
-
 
 class Ingredient(models.Model):
     ingredient = models.CharField(max_length=20)
